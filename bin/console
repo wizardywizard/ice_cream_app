@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-
+require "bundler"
 require "bundler/setup"
 require "ice_cream_app"
 
