@@ -25,7 +25,7 @@ class IceCreamController
     end
 
     def list_description
-        description.sort{|a, b| a <=> b}.each.with_index(1) do |star, i|
+        Ice_cream.description.sort{|a, b| a <=> b}.each.with_index(1) do |star, i|
             puts "#{i}. #{star.rating}"
     end
 
@@ -34,5 +34,3 @@ end
 
 
 
-
-end
