@@ -15,13 +15,15 @@ class Scraper
     end
 
     def self.scrape_flavor_page(flavor_url)
-        rating = []
-        binding.pry
-        doc.css("div.bv_avgRating_component_container").map do |star|
-            rate = star.itemprop.strip
-            rating << {:rate => "#{rate}"}
+        description = []
+        doc = Nokogiri::HTML(open(flavor_url))
+        doc.css("body > div.dialog-off-canvas-main-canvas > div > div > section > div > article > div.content > div.box-infos-details > div.box-content-details > div.product-infos > span:nth-child(4) > div").each do |star|
+            dis = star.text
+            description << {:discription => "#{dis}"}
         end
-        rating
+        description
     end
 
 end
+
+Scraper.scrape_flavor_page("https://www.haagendazs.us/products/ice-cream/belgian-chocolate-ice-cream")
