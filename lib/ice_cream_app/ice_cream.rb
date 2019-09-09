@@ -2,18 +2,19 @@ require 'pry'
 
 class Ice_cream
 
-    attr_accessor :flavor , :rating
+    attr_accessor :flavor , :description
 
     @@all = []
 
     def initialize(ice_cream_hash)
-        @flavor = flavor
-        @rating = rating
+        @flavor = ice_cream_hash[:flavor]
+        @description = ice_cream_hash[:description]
         @@all << self
     end
 
     def self.create_from_collection(ice_cream_array)
         ice_cream_array.each do |cream|
+            binding.pry
             Ice_cream.new(cream)
         end
     end
@@ -22,11 +23,12 @@ class Ice_cream
         @@all
     end
 
-    def all_rates(rates_array)
-        rates_array.each do |key, value|
+    def all_description(description_array)
+        description_array.each do |key, value|
             self.send(("#{key}="), value)
         end
     end
 
 end
 
+Ice_cream.create_from_collection()
