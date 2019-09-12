@@ -1,3 +1,5 @@
+require_relative "../lib/ice_cream_scraper.rb"
+require_relative "../lib/ice_cream.rb"
 require 'pry'
 
 class IceCreamController
