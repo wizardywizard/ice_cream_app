@@ -1,4 +1,4 @@
-require 'pry'
+# require 'pry'
 
 class Ice_cream
 
@@ -14,7 +14,6 @@ class Ice_cream
 
     def self.create_from_collection(ice_cream_array)
         ice_cream_array.each do |cream|
-            binding.pry
             Ice_cream.new(cream)
         end
     end
@@ -31,4 +30,4 @@ class Ice_cream
 
 end
 
-Ice_cream.create_from_collection()
+
