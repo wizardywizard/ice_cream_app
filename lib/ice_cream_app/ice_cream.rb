@@ -1,15 +1,16 @@
-# require 'pry'
-
 class Ice_cream
 
-    attr_accessor :flavor, :description, :url
+    attr_accessor :flavor, :description, :url, :size
 
     @@all = []
 
     def initialize(ice_cream_hash)
         @flavor = ice_cream_hash[:flavor]
         @url = ice_cream_hash[:url]
+        @description = ice_cream_hash[:description]
+        @size = ice_cream_hash[:size]
         @@all << self
+        binding.pry
     end
 
     def self.create_from_collection(ice_cream_array)

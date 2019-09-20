@@ -15,22 +15,23 @@ class IceCreamController
     def menu
         input = ""
         while input != "exit"
-            puts "select a number to know more about that flavor"
+            puts "select a number to know more about that flavor and available size"
             puts "type 'list' to see the list again."
             puts "To quite, type 'exit'."
             puts "what would you like to do?"
          input = gets.strip
          if (1..Ice_cream.all.length).include?(input.to_i)
-            iceCream = Ice_cream.all[(input.to_i) - 1]
-            Scraper.scrape_flavor_page(iceCream)
+             iceCream = Ice_cream.all[(input.to_i) - 1]
+             puts"hello"
          elsif input.downcase == "list"
             list_flavors
+         elsif input.downcase == "exit"
+            puts "goodbye"
          else
             puts "not a valide option please select another option"
             list_flavors
             end
          end
-         puts "goodbye"
     end
 
     def list_flavors
@@ -40,7 +41,8 @@ class IceCreamController
     end
 
     def list_description
-      
+      Ice_cream.all.each do |flavor, des|
+      end
     end
 
 end
