@@ -2,13 +2,13 @@
 
 class Ice_cream
 
-    attr_accessor :flavor , :description
+    attr_accessor :flavor, :description, :url
 
     @@all = []
 
     def initialize(ice_cream_hash)
         @flavor = ice_cream_hash[:flavor]
-        @description = ice_cream_hash[:description]
+        @url = ice_cream_hash[:url]
         @@all << self
     end
 

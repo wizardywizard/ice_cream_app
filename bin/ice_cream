@@ -1,7 +1,7 @@
+#!/usr/bin/env ruby
 require_relative "../lib/ice_cream_app"
 
  ice = IceCreamController.new
 ice.call
 
-#google make ruby file exaputable
-#shebang
+

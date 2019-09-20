@@ -5,26 +5,22 @@
 class Scraper
 
     def self.scrape_index_page
-        ice_cream_flavors = []
         doc = Nokogiri::HTML(open("https://www.haagendazs.us/products/ice-cream"))
-        doc.css("div.name-product h2").map do |cream|
-            flavor = cream.text.strip
-            ice_cream_flavors << {:flavor => "#{flavor}"}
+         ice_cream_flavors = doc.css(".col-xs-12.col-sm-4.col-lg-3.columns.flavors a").map do |cream|
+         link_href = cream.attr("href")
+           ice_cream_flavor = cream.css("div.name-product h2").text.strip
+             {:flavor => ice_cream_flavor, :url => "https://www.haagendazs.us#{link_href}"}
         end
-        ice_cream_flavors
+       Ice_cream.create_from_collection(ice_cream_flavors)
     end
 
-    def self.scrape_flavor_page(flavor_url)
-        description = []
-        doc = Nokogiri::HTML(open(flavor_url))
-        doc.css("body > div.dialog-off-canvas-main-canvas > div > div > section > div > article > div.content > div.box-infos-details > div.box-content-details > div.product-infos > span:nth-child(4) > div").each do |star|
-            dis = star.text
-            description << {:discription => "#{dis}"}
-        end
-        description
+    def self.scrape_flavor_page(ice_cream_instence)
+       # flavor_url = "https://www.haagendazs.us/products/ice-cream/belgian-chocolate-ice-cream"
+        doc = Nokogiri::HTML(open(ice_cream_instence.url))
+        ice_cream_instence.description = doc.css(".product-infos span").first.text.strip
+        oz = doc.css(".product-infos span").last.text
+        ice_cream_instence.size = "Available in #{oz}"
     end
 
 end
 
-# Scraper.scrape_index_page("https://www.haagendazs.us/products/ice-cream")
-# Scraper.scrape_flavor_page("https://www.haagendazs.us/products/ice-cream/belgian-chocolate-ice-cream")

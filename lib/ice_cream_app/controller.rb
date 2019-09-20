@@ -1,6 +1,6 @@
 # require_relative "../lib/ice_cream_scraper.rb"
 # require_relative "../lib/ice_cream.rb"
-# #require 'pry'
+ #require 'pry'
 # #require 'nokogiri'
 
 class IceCreamController
@@ -21,11 +21,8 @@ class IceCreamController
             puts "what would you like to do?"
          input = gets.strip
          if (1..Ice_cream.all.length).include?(input.to_i)
-            puts "ice cream"
-            Scraper.scrape_flavor_page(flavor_url)
-            # find object 
-            # go get discription (scrape_flavor_page)
-            # display discription
+            iceCream = Ice_cream.all[(input.to_i) - 1]
+            Scraper.scrape_flavor_page(iceCream)
          elsif input.downcase == "list"
             list_flavors
          else
@@ -37,19 +34,20 @@ class IceCreamController
     end
 
     def list_flavors
-        Ice_cream.all.sort{ |a, b| a.name <=> b.name}.each.with_index(1) do |c, i|
-            puts "#{i}. #{c.flavor.name}"
+        Ice_cream.all.sort{ |a, b| a.flavor <=> b.flavor}.each.with_index(1) do |c, i|
+            puts "#{i}. #{c.flavor}"
         end
     end
 
     def list_description
-        # Ice_cream.description.sort{|a, b| a <=> b}.each.with_index(1) do |star, i|
-        #     puts "#{i}. #{star.rating}"
-        # end
+      
     end
 
 end
 
-
+# 1. add size attr
+# 2. display info
+# 3. looping
+# 4. review week 3 (instance methods, class methods, call self)
 
 
