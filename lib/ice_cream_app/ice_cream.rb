@@ -10,7 +10,6 @@ class Ice_cream
         @description = ice_cream_hash[:description]
         @size = ice_cream_hash[:size]
         @@all << self
-        binding.pry
     end
 
     def self.create_from_collection(ice_cream_array)

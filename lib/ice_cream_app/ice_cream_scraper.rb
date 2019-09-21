@@ -15,11 +15,12 @@ class Scraper
     end
 
     def self.scrape_flavor_page(ice_cream_instence)
+        description_size = []
         doc = Nokogiri::HTML(open(ice_cream_instence.url))
         ice_cream_instence.description = doc.css(".product-infos span").first.text.strip
         oz = doc.css(".product-infos span").last.text
         ice_cream_instence.size = "Available in #{oz}"
-        {:description => ice_cream_instence.description, :size => ice_cream_instence.size}
+        description_size << {:description => ice_cream_instence.description, :size => ice_cream_instence.size}
     end
 
 end

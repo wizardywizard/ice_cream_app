@@ -21,8 +21,10 @@ class IceCreamController
             puts "what would you like to do?"
          input = gets.strip
          if (1..Ice_cream.all.length).include?(input.to_i)
-             iceCream = Ice_cream.all[(input.to_i) - 1]
-             puts"hello"
+             @iceCream = Ice_cream.all[(input.to_i) - 1]
+             Scraper.scrape_flavor_page(@iceCream)
+             list_description
+             list_size
          elsif input.downcase == "list"
             list_flavors
          elsif input.downcase == "exit"
@@ -41,8 +43,11 @@ class IceCreamController
     end
 
     def list_description
-      Ice_cream.all.each do |flavor, des|
-      end
+     puts @iceCream.description
+    end
+
+    def list_size
+       puts @iceCream.size
     end
 
 end
