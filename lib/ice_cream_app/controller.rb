@@ -1,8 +1,3 @@
-# require_relative "../lib/ice_cream_scraper.rb"
-# require_relative "../lib/ice_cream.rb"
- #require 'pry'
-# #require 'nokogiri'
-
 class IceCreamController
 
     def call 
@@ -51,10 +46,4 @@ class IceCreamController
     end
 
 end
-
-# 1. add size attr
-# 2. display info
-# 3. looping
-# 4. review week 3 (instance methods, class methods, call self)
-
 
