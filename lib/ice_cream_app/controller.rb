@@ -26,6 +26,8 @@ class IceCreamController
             puts "goodbye"
          else
             puts "not a valide option please select another option"
+            puts ""
+            puts ""
             list_flavors
             end
          end

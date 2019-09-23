@@ -29,5 +29,3 @@ class Ice_cream
     end
 
 end
-
-
