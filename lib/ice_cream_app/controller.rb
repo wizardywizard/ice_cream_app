@@ -17,7 +17,7 @@ class IceCreamController
          input = gets.strip                                                                
          if (1..Ice_cream.all.length).include?(input.to_i)                                 
              @iceCream = Ice_cream.all[(input.to_i) - 1]                                   
-             Scraper.scrape_flavor_page(@iceCream)                                         
+             Scraper.scrape_flavor_page(@iceCream)  unless  @iceCream.description                                   
              list_description                                                              
              list_size                                                                     
          elsif input.downcase == "list"                                                    

@@ -10,7 +10,7 @@ class Scraper
        Ice_cream.create_from_collection(ice_cream_flavors)                                                        
     end
 
-    def self.scrape_flavor_page(ice_cream_instence)                                                                                                                                                  
+    def self.scrape_flavor_page(ice_cream_instence)                                                                                                                                               
         doc = Nokogiri::HTML(open(ice_cream_instence.url))                                                        
         ice_cream_instence.description = doc.css(".product-infos span").first.text.strip                          
         oz = doc.css(".product-infos span").last.text                                                             
