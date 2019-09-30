@@ -1,0 +1,27 @@
+Scraper class:
+self.scrape_index_page goes to the website and scrapes every flavor and the url of each flavor.
+
+self.scrape_flavor_page goes to each flavor page and grabs the description and the size its available in.
+
+
+Ice_cream class:
+initialize sets all the @ for the object Ice_cream
+
+self.create_from_collection itterates over the ice_cream_array and makes a new object with each flavor
+
+self.all shows all
+
+all_description itterates over description_array
+
+
+IceCreamController class:
+call puts a welcome message then calls the list_flavors and menu methods
+
+menu shows the options that the user can choose from gets the users input
+uses an if else loop to make sure that what the user's input is valid
+
+list_flavors uses Ice_cream and sorts all the flavors then lists them
+
+list_description gets the description
+
+list_size gets the size

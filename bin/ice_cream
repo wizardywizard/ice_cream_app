@@ -1,7 +1,5 @@
-#!/usr/bin/env ruby
-require_relative "../lib/ice_cream_app"
+#!/usr/bin/env ruby                                  
+require_relative "../lib/ice_cream_app"              
 
- ice = IceCreamController.new
-ice.call
-
-
+ ice = IceCreamController.new                         
+ice.call                                              
